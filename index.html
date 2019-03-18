@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <!-- Browser testing Info: https://usability.yale.edu/web-accessibility/articles/zoom-resizing-text -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <p>Minim magna fugiat excepteur ut. Incididunt laboris et dolore enim id sunt voluptate veniam do consectetur tempor pariatur. Occaecat ullamco do id enim consectetur dolor aute. Lorem dolore aute mollit et veniam proident ea dolor occaecat ad ad ut.</p>
+
+        <p>Ex esse magna qui ad amet proident mollit Lorem amet sint nisi aliquip. Duis nulla commodo ea enim qui. Sit cupidatat et cillum adipisicing laborum anim amet nulla. Aliquip officia occaecat consequat fugiat occaecat nostrud cupidatat cupidatat aliqua enim officia. Laboris ipsum incididunt aliqua do deserunt mollit reprehenderit exercitation dolor amet cillum labore aliqua do.</p>
+
+        <p>Voluptate officia duis nisi commodo in ad sunt amet anim. Quis cillum eu qui laborum excepteur consectetur amet excepteur minim sint. Incididunt aliqua quis dolor consequat eiusmod. Do nisi aute laborum ut fugiat consectetur irure laborum quis sit dolor dolore sint mollit. Dolor cupidatat culpa magna consequat ex nulla voluptate. Esse deserunt reprehenderit anim aliqua sit ullamco sit ullamco deserunt proident laboris. Laborum dolore laborum anim laboris.</p>
+
+        <p>Dolore elit laborum adipisicing pariatur sit. Et irure laborum adipisicing amet exercitation dolor ullamco duis in laborum officia velit enim aliqua. Ut tempor elit officia ex officia veniam deserunt incididunt. Excepteur excepteur tempor pariatur irure quis labore excepteur esse laborum consectetur dolor minim proident.</p>
+
+        <p>Amet consequat proident occaecat pariatur sint reprehenderit aute. Qui aliquip voluptate pariatur irure nostrud dolor est Lorem enim do cupidatat pariatur sint. Et magna laborum deserunt sit aliqua.</p>
+
+        <p>Ad commodo anim excepteur culpa cillum sunt esse. Magna veniam eiusmod nostrud nostrud dolor sit non cupidatat dolore tempor. Proident amet eiusmod incididunt sint minim non adipisicing duis aliquip sint voluptate cillum. Nulla reprehenderit minim esse dolore aliqua tempor quis irure laborum occaecat id excepteur. Sit anim ut occaecat laborum pariatur magna cillum. Enim ex magna aute eiusmod excepteur enim quis.</p>
+
+        <p>Do ex esse aliqua adipisicing velit excepteur laboris eu officia eu do non labore irure. Occaecat et aliquip ad nulla ad pariatur esse irure laborum. Lorem elit qui ex culpa sint cupidatat. Occaecat adipisicing non labore sunt nulla incididunt aliquip esse consequat amet. Minim adipisicing mollit pariatur dolore do proident veniam Lorem nostrud ex incididunt. Nostrud ex nostrud adipisicing cillum in et nulla commodo.</p>
+
+        <p>Pariatur cillum ex ullamco magna enim anim ex elit enim eiusmod nostrud. Est anim aliquip esse laborum reprehenderit adipisicing tempor commodo labore tempor nostrud. Velit irure ullamco ad excepteur eiusmod aute sunt sint eiusmod laboris. Velit cillum veniam minim fugiat mollit pariatur eiusmod nostrud minim deserunt enim. Ullamco ipsum eu dolor laborum esse commodo dolor do. Do labore aute aliqua reprehenderit minim.</p>
+
+        <p>Labore amet enim nostrud eiusmod adipisicing. Do sunt culpa culpa deserunt. Ex ullamco exercitation occaecat enim culpa quis quis laborum. Minim et eu labore ea nostrud sunt nulla dolore officia occaecat enim fugiat.</p>
+
+        <p>Nulla irure irure sit nostrud ut mollit non voluptate. Esse eiusmod eiusmod amet cillum proident quis culpa deserunt adipisicing culpa. Nostrud sint cillum velit labore enim voluptate culpa aute mollit labore adipisicing veniam. Sit ad ex dolor labore duis non irure deserunt commodo aliqua. Nostrud pariatur sit sit qui quis sint et. Anim cillum dolore duis sunt aliqua et aliqua sunt cillum. Ex consectetur voluptate exercitation commodo ea culpa sit do.</p>
+        
+        <script src="js/textZoomEvent.js"></script>
+        <script>
+            // It is better if you give this the value of 
+            // parseFloat(getComputedStyle(document.documentElement).fontSize
+            // when the doc is not zoomed.
+            textZoomEvent.init(16);
+
+            console.log('on load, resize factor is ', textZoomEvent.resizeFactor());
+
+            document.addEventListener('textzoom', function (e) {
+                console.log('ds', textZoomEvent.unzoomPixelValue, e.detail.resizeFactor());
+            });
+        </script>
+    </body>
+</html>
