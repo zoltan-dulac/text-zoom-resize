@@ -1,0 +1,55 @@
+{
+  "name": "text-zoom-event",
+  "version": "1.0.0",
+  "description": "A library that will detect when a user zooms text in their browser. This is a common use case for people who are visually impaired.",
+  "main": "dist/textZoomEvent-es4.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx babel js/textZoomEvent.js --out-file dist/textZoomEvent-es4.js",
+    "build:all": "npm run build; npm run build:prod",
+    "build:prod": "BABEL_ENV=production npx babel js/textZoomEvent.js --out-file dist/textZoomEvent-es4-min.js",
+    "clean": "rimraf dist/*",
+    "update:major": "V=`npm version major`; git push origin $V; npm publish",
+    "update:minor": "V=`npm version minor`; git push origin $V; npm publish",
+    "update:patch": "V=`npm version patch`; git push origin $V; npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoltan-dulac/text-zoom-resize.git"
+  },
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "textzoom",
+    "text",
+    "zoom",
+    "zoom",
+    "text",
+    "text",
+    "resize",
+    "resize",
+    "text",
+    "WCAG",
+    "WCAG",
+    "AA",
+    "1.4.4",
+    "WCAG",
+    "AA",
+    "WCAG",
+    "1.4.4",
+    "visually",
+    "impaired"
+  ],
+  "author": "Zoltan Hawryluk",
+  "license": "SEE LICENSE IN js/textZoomEvent.js",
+  "bugs": {
+    "url": "https://github.com/zoltan-dulac/text-zoom-resize/issues"
+  },
+  "homepage": "https://github.com/zoltan-dulac/text-zoom-resize#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "babel-minify": "^0.5.0",
+    "babel-preset-minify": "^0.5.0"
+  }
+}
