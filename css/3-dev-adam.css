@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /*
+     * This puts the photo always in the background,
+     * centered and as heigh as the viewport.
+     */
+    background-image: url("../images/3-dev-adam.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 25%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 50vw;
+    width: calc(50vw * var(--text-zoom-factor));
+    max-height: 60vh;
+    padding: 1em;
+    line-height: 1.2;
+    font-size: calc(12px + 1.7vmin);
+}
+
+.overlay h1 {
+    margin: 0;
+    font-size: calc(12px + 1.8vmin)
+}
+
+@media only screen and (orientation: portrait) {
+    .overlay {
+        width: 100vw;
+        max-height: 40vh;
+        max-height: calc(40vh * var(--text-zoom-factor) * 0.9);
+    }
+  }

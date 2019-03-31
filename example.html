@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>text-zoom-resize example #1 - 3 Dev Adam</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/3-dev-adam.css">
+    </head>
+    <body>
+
+        <div class="background">
+            <div class="overlay">
+                <h1>3 Dev Adam</h1>
+
+                <p>
+                    3 Dev Adam (English: 3 Giant Men) is a 1973 Turkish cult superhero film
+                    featuring Aytekin Akkaya as Captain America and Yavuz Selekman
+                    as Santo called to Istanbul on a special mission to stop the villainous
+                    Spider-Man and his criminal gang. The film, which went on nationwide
+                    general release across the country on November 1, 1973, was completely
+                    unauthorized by the copyright owners of the characters depicted.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Latest v1.x.x -->
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@1"></script>
+        <script src="dist/textZoomEvent-es4.js"></script>
+        <script>
+            function setCssTextZoomFactor() {
+                //const root = document.documentElement;
+                cssVars({
+                    variables: {
+                        'text-zoom-factor': textZoomEvent.resizeFactor()
+                    }
+                });
+                //root.style.setProperty('--text-zoom-factor', textZoomEvent.resizeFactor());
+
+                console.log('e', textZoomEvent.resizeFactor());
+            }
+            cssVars();
+            // It is better if you give this the value of 
+            // parseFloat(getComputedStyle(document.documentElement).fontSize
+            // when the doc is not zoomed.
+            textZoomEvent.init(16);
+            setCssTextZoomFactor();
+            document.addEventListener('textzoom', setCssTextZoomFactor);
+        </script>
+    </body>
+</html>
