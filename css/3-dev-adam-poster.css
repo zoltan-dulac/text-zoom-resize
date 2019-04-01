@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+.demo {
+    background: black;
+    position: relative;
+    width: 865.6px;
+    height: 615px;
+    margin: 0 auto;
+}
+
+.image, .image img, .text {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.text { 
+    color: white;
+    font-size: 1.2em;
+    font-family: "Helvetica", "Arial", sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.text-label {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+.text-top {
+    width: 50%;
+    top: 0;
+    left: 0;
+}
+
+.text-bottom {
+    width: 38%;
+    bottom: 0;
+    right: 0;
+}
+
+.text-zoom-113 .text-bottom {
+    width: 100%;
+    left: 0;
+    right: auto;
+    top: 100%;
+    bottom: auto;
+    background: black;
+}

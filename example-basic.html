@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>text-zoom-resize example #1 - 3 Dev Adam</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/3-dev-adam-poster.css">
+    </head>
+    <body>
+
+    <div class="demo">
+        <div class="image">
+            <img src="images/3-dev-adam-poster-widescreen.jpg" />
+        </div>
+        <div class="text">
+            <div class="text-top text-label">
+                Text Zoom - Simple example
+            </div>
+
+            <div class="text-bottom text-label">
+                If you zoom the text in this demo over 113%, you will see
+                this text reposition itself to ensure it doesn't obscure important
+                parts of this photo.
+            </div>
+        </div>
+    </div>
+        
+        <script src="dist/textZoomEvent-es4.js"></script>
+        <script>
+            const body = document.body;
+            function setCssTextZoomFactor() {
+                console.log(textZoomEvent.resizeFactor());
+                if (textZoomEvent.resizeFactor() > 1.13) {
+                    body.classList.add('text-zoom-113');
+                } else {
+                    body.classList.remove('text-zoom-113');
+                }
+            }
+            // It is better if you give this the value of 
+            // parseFloat(getComputedStyle(document.documentElement).fontSize
+            // when the doc is not zoomed.
+            textZoomEvent.init(16);
+            setCssTextZoomFactor();
+            document.addEventListener('textzoom', setCssTextZoomFactor);
+        </script>
+    </body>
+</html>
