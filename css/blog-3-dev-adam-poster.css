@@ -1,18 +1,26 @@
-* {
+.demo * {
     box-sizing: border-box;
 }
 
 .demo {
     background: black;
     position: relative;
-    width: 865.6px;
     height: 615px;
-    margin: 0 auto;
+    margin: 0 auto 1em auto;
+    line-height: 1.2;
+    width: calc(100% + 1em);
+}
+
+.demo-explanation {
+    margin: 20px auto 60px auto;
+    font-family: "Helvetica", "Arial", sans-serif;
+    padding: 0 1em;
+    font-style: italic;
 }
 
 .image, .image img, .text {
     position: absolute;
-    width: 100%;
+    width: 865.6px;
     left: 0;
     top: 0;
 }
@@ -27,12 +35,11 @@
 
 .text-label {
     position: absolute;
-    background: rgba(0, 0, 0, 0.8);
+    background: #000;
     padding: 20px;
 }
 
 .text-top {
-    width: 50%;
     top: 0;
     left: 0;
 }
@@ -41,13 +48,88 @@
     width: 38%;
     bottom: 0;
     right: 0;
+    padding: 1em 1.6em;
+}
+
+.text-zoom-113 .demo {
+    margin-bottom: 9em;
 }
 
 .text-zoom-113 .text-bottom {
     width: 100%;
     left: 0;
     right: auto;
-    top: 100%;
+    top: calc(100% - 1px);
     bottom: auto;
     background: black;
+    padding: 1em;
+}
+
+.text-zoom-113 .demo-explanation {
+    margin-top: 6em;
+}
+
+#content ul > li {
+    padding-bottom: 14px;
+}
+
+#content ol, #content ul {
+    padding-bottom: 0;
+}
+
+#content ol + p {
+    margin-bottom: 0;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .demo-explanation {
+        width: 100%;
+    }
+
+    .demo {
+        position: relative;
+        left: -1.1em;
+        width: calc(100% + 2em);
+        height: 71vw;
+    }
+
+    .entry .demo img {
+        margin-top: 0 !important;
+        width: 100vw !important;
+        max-width: 100% !important;
+    }
+
+    .text {
+        font-size: 0.9em;
+    }
+
+    .text-label {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .text-bottom {
+        width: 100%;
+        left: 0;
+        right: auto;
+        top: 100%;
+        bottom: auto;
+        background: black;
+    }
+
+    .demo-explanation {
+        margin-top: 6em;
+    }
+
+    .text-label {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .text-top {
+        width: 50%;
+    }
 }
