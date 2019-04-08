@@ -29,7 +29,6 @@ document.addEventListener('textzoom', function (e) {
 });
 ```
 
-How can you test?  Different browsers have different UIs for zooming text. 
-The best place to find this information is:
-
-https://usability.yale.edu/web-accessibility/articles/zoom-resizing-text
+How can you test?  Different browsers have different UIs for zooming text.
+Full details can be found on my blog post about this library at
+https://www.useragentman.com/blog/?p=7749
