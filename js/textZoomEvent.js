@@ -36,7 +36,7 @@ if (typeof document !== 'undefined') {
 
 
     textZoomEvent = new function () {
-        let dFrame;
+        let dFrame, dDiv;
         let fontSizeChangeEvent;
         let isInitialized = false;
 
@@ -57,11 +57,28 @@ if (typeof document !== 'undefined') {
         }
 
         this.resizeFactor = function () {
-            return dFrame.offsetWidth / textZoomEvent.unzoomPixelValue;
+            return dDiv.offsetWidth / textZoomEvent.unzoomPixelValue;
+        }
+
+        this.forceFontBoosting = function (el) {
+            const fontBoostFix = document.createElement('span');
+            const testText = '&#8203;';
+            const initialChars = 217;
+            let forceFontBoostingStr = '';
+            
+            fontBoostFix.setAttribute('aria-hidden', 'true');
+            
+            for (let i=0; i<initialChars; i++ ) {
+                forceFontBoostingStr += testText;
+            }
+            fontBoostFix.innerHTML = forceFontBoostingStr;
+            el.appendChild(fontBoostFix);
+            
+            
         }
 
         const onFontSizeChangeHandler = function () {
-            const r = dFrame.offsetWidth / 100;
+            const r = dDiv.offsetWidth / 100;
 
             return !document.dispatchEvent(fontSizeChangeEvent);
         }
@@ -77,34 +94,32 @@ if (typeof document !== 'undefined') {
                     resizeFactor: this.resizeFactor
                 }
             });
+            
+            const forceFontBoostingEls = document.getElementsByClassName('force-font-boosting');
+            for (let i=0; i<forceFontBoostingEls.length; i++) {
+                this.forceFontBoosting(forceFontBoostingEls[i]);
+            }
             this.unzoomPixelValue = unzoomPixelValue || convertRem(1);
 
             // Create IFRAME that we will attache resize event to.
             dFrame = document.createElement('IFRAME');
             dFrame.setAttribute('aria-hidden', 'true');
+            dFrame.style.cssText = 'position:absolute;left:0;top:-100%;width:100%;height:100%;margin:1px 0 0;border:none;opacity:0;visibility:hidden;pointer-events:none;';
+            dDiv = document.createElement('DIV');
+            dDiv.style.cssText = "font-family: 'Arial', 'Helvetica', sans-serif; box-sizing: border-box; position: relative; display: inline; font-size: 1em;"; //clip-path: polygon(0% 100%, 0% 100%);"
+            const testText = '&#8203;';
+            let forceFontBoostingStr = '<span aria-hidden="true">m'
 
-            document.body.insertBefore(dFrame, b);
-
-            const dS = dFrame.style;
-            dS.width = '1em';
-            dS.height = '1px';
-            dS.borderWidth = 0;
-            dS.position = 'absolute';
-            dS.overflow = 'hidden';
-            dS.whiteSpace = 'nowrap';
-            dS.margin = '-1px';
+            var initialChars = 217;
+            for (var i=0; i<initialChars; i++ ) {
+                forceFontBoostingStr += testText;
+            }
+            forceFontBoostingStr += '</span>'
+            dDiv.innerHTML = forceFontBoostingStr;
+            document.body.appendChild(dDiv);
+            dDiv.appendChild(dFrame);
 
             const dWin = dFrame.contentWindow;
-            
-            let doc = dFrame.contentWindow || dFrame.contentDocument || dFrame.document;
-            doc = doc.document || doc;
-
-            const s = 'style="width:100%;height:100%;padding:0;margin:0;overflow:hidden;"';
-
-            doc.open();
-            doc.write('<html ' + s + '><body ' + s + '></body></html>');
-            doc.close();
-
             dWin.addEventListener('resize', onFontSizeChangeHandler);
             isInitialized = true;
         }

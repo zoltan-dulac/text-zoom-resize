@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>text-zoom-resize example #1 - 3 Dev Adam</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/3-dev-adam-poster.css">
+    </head>
+    <body>
+        <p id="tester"></p>
+
+        <script>
+            var testText = '&#8203;';
+            var testerEl = document.getElementById('tester');
+
+            var initialChars = 217;
+            for (var i=0; i<initialChars; i++ ) {
+                testerEl.innerHTML += testText;
+            }
+            testerEl.innerHTML += 'm';
+        </script>
+    </body>
+</html>

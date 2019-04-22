@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+
+        
+        .visually-hidden {
+            transform: scale(0);
+            border: solid 1px blue;
+        }
+
+        #foo {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        /* #tester {
+            animation: test-resize 1s linear; 
+            animation-iteration-count: infinite;
+        } */
+
+        @keyframes test-resize {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(2);
+            }
+            
+        }
+        </style>
+
+        <!--
+            https://stackoverflow.com/questions/27473365/how-to-keep-fonts-consistent-and-respect-text-scaling-on-android-bizarre-bug-of
+        -->
+    </head>
+    <body>
+        <p>Info: <span id="info"></span></p>
+        <p>This is unstyled text</p>
+        <p style="font-size: 1rem; ">This is a rem sizing</p>
+        <p style="font-size: 1em">This is an em sizing</p>
+        <p style="font-size: 12px">This is px sizing</p>
+
+        
+        <div id="tester" style="box-sizing: border-box; position: relative; display: inline; clip-path: polygon(0% 100%, 0% 100%);">
+            1em width
+        </div>
+     
+        <script>
+            var testText = '&#8203;';
+            var testerEl = document.getElementById('tester');
+            let forceFontBoostingStr = '<span aria-hidden="true">—'
+
+            var initialChars = 217;
+            for (var i=0; i<initialChars; i++ ) {
+                forceFontBoostingStr += testText;
+            }
+            forceFontBoostingStr += '</span>'
+            testerEl.innerHTML = forceFontBoostingStr;
+            
+            // Everything after this line is just for info
+            var infoEl = document.getElementById('info');
+            var fooEl = document.getElementById('foo');
+            infoEl.innerHTML = testerEl.offsetWidth; //document.defaultView.getComputedStyle(testerEl, null).width;
+
+            function observeResize(element, handler) {
+                var frame = document.createElement('iframe');
+                //frame.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%';
+                frame.style.cssText = 'position:absolute;left:0;top:-100%;width:100%;height:100%;margin:1px 0 0;border:none;opacity:0;visibility:hidden;pointer-events:none;';
+                element.appendChild(frame);
+                frame.contentWindow.onresize = function() { handler.call(element); };
+            }
+
+            /* const resizeObserver = new ResizeObserver(entries => {
+               
+                alert('resized');
+                infoEl.innerHTML = testerEl.offsetWidth;
+            }); */
+            //resizeObserver.observe(fooEl);
+            observeResize(testerEl, function() {
+               infoEl.innerHTML = testerEl.offsetWidth;
+            })
+        </script>
+    </body>
+</html>

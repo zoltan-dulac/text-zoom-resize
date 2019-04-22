@@ -11,9 +11,8 @@
         <!-- Browser testing Info: https://usability.yale.edu/web-accessibility/articles/zoom-resizing-text -->
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <div id="output"></div>
+
         <p>Minim magna fugiat excepteur ut. Incididunt laboris et dolore enim id sunt voluptate veniam do consectetur tempor pariatur. Occaecat ullamco do id enim consectetur dolor aute. Lorem dolore aute mollit et veniam proident ea dolor occaecat ad ad ut.</p>
 
         <p>Ex esse magna qui ad amet proident mollit Lorem amet sint nisi aliquip. Duis nulla commodo ea enim qui. Sit cupidatat et cillum adipisicing laborum anim amet nulla. Aliquip officia occaecat consequat fugiat occaecat nostrud cupidatat cupidatat aliqua enim officia. Laboris ipsum incididunt aliqua do deserunt mollit reprehenderit exercitation dolor amet cillum labore aliqua do.</p>
@@ -36,15 +35,16 @@
         
         <script src="js/textZoomEvent.js"></script>
         <script>
+            var outputEl = document.getElementById('output');
             // It is better if you give this the value of 
             // parseFloat(getComputedStyle(document.documentElement).fontSize
             // when the doc is not zoomed.
             textZoomEvent.init(16);
 
-            console.log('on load, resize factor is ', textZoomEvent.resizeFactor());
+            outputEl.innerHTML = '<div>on load, resize factor is ' + textZoomEvent.resizeFactor() + '</div><div>font size on load: ' + parseFloat(getComputedStyle(document.documentElement).fontSize + '</div>');
 
             document.addEventListener('textzoom', function (e) {
-                console.log('ds', textZoomEvent.unzoomPixelValue, e.detail.resizeFactor());
+                outputEl.innerHTML += ('<div>resize factor: ' + e.detail.resizeFactor() + '</div>');
             });
         </script>
     </body>
