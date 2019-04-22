@@ -109,14 +109,10 @@
     }
 }
 
+
 @media only screen and (max-width: 570px) {
-    .text-bottom {
-        width: 100%;
-        left: 0;
-        right: auto;
-        top: 100%;
-        bottom: auto;
-        background: black;
+    .demo {
+        height: 115.3vw;
     }
 
     .demo-explanation {
@@ -129,6 +125,9 @@
 }
 
 @media only screen and (max-width: 320px) {
+    .text {
+        font-size: 0.7rem;
+    }
     .text-top {
         width: 50%;
     }

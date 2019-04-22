@@ -12,7 +12,14 @@
 
     <div class="demo">
         <div class="image">
-            <img src="images/3-dev-adam-poster-widescreen.jpg" />
+        <picture>
+            <source media="(max-width: 570px)" srcset="images/3-dev-adam-poster.jpg" />
+            <source media="(min-width: 571px)" srcset="images/3-dev-adam-poster-widescreen.jpg" />
+            <img
+                src="images/3-dev-adam-poster-widescreen.jpg"
+                alt="Photo from the movie '3 Dev Adam': Turkish Captain America is trying to save Julie from the Evil Turkish Spiderman."
+            />
+        </picture>
         </div>
         <div class="text">
             <div class="text-top text-label">
@@ -28,25 +35,33 @@
 
     </div>
 
-    <p class="demo-explanation">
-        If you zoom the text in this demo over 113%, you will see
+
+    <div class="demo-explanation">
+        <p><strong id="resize-factor"></strong></p>
+        
+        <p>If you zoom the text in this demo over 113%, you will see
         this text reposition itself to ensure it doesn't obscure important
         parts of this photo. <strong>Note: this effect will only be 
         experienced on desktop and tablet breakpoints
         because of art direction considerations — the text-zoom-event
-        library does work on all devices.</strong>
-    </p>
+        library does work on all devices.</strong></p>
+    </div>
         
         <script src="dist/textZoomEvent-es4.js"></script>
         <script>
             const body = document.body;
+            const resizeFactorEl = document.getElementById('resize-factor');
             function setCssTextZoomFactor() {
-                console.log(textZoomEvent.resizeFactor());
-                if (textZoomEvent.resizeFactor() > 1.13) {
+                const resizeFactor = textZoomEvent.resizeFactor();
+                if (resizeFactor > 1.13) {
                     body.classList.add('text-zoom-113');
                 } else {
                     body.classList.remove('text-zoom-113');
                 }
+
+                // show resize factor on the screen
+                resizeFactorEl.innerHTML = 'This page has text zoomed to ' + resizeFactor * 100 + '% of the original font size.';
+                //window.alert(resizeFactor);
             }
             // It is better if you give this the value of 
             // parseFloat(getComputedStyle(document.documentElement).fontSize

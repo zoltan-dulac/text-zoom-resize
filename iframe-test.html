@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/reset.css">
+
+        <style>
+            body {
+                font-size: 1rem;
+            }
+
+            .test-size, .static-size {
+                border: solid 1px black;
+                box-sizing: border-box;
+                text-align: center;
+                max-height: 999999px;
+            }
+
+            .test-size {
+                width: 6em;
+                height: 6em;
+                background: #ccc;
+            }
+
+            .static-size {
+                width: 96px;
+                height: 96px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="test-size">
+            div 1
+        </div>
+        <iframe class="test-size" src="iframe.html">
+            iframe
+        </iframe>
+        <div class="static-size">
+            static div
+        </div>
+        <iframe class="static-size" src="iframe.html">
+        </iframe>
+
+        <p>Minim magna fugiat excepteur ut. Incididunt laboris et dolore enim id sunt voluptate veniam do consectetur tempor pariatur. Occaecat ullamco do id enim consectetur dolor aute. Lorem dolore aute mollit et veniam proident ea dolor occaecat ad ad ut.</p>
+
+    </body>
+</html>

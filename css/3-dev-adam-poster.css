@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     line-height: 1.2;
+    text-size-adjust: none;
+    font-size: 1rem;
 }
 
 body {
@@ -31,7 +33,7 @@ body {
 
 .text { 
     color: white;
-    font-size: 1.2em;
+    font-size: 1.4375em;
     font-family: "Helvetica", "Arial", sans-serif;
     height: 100%;
     width: 100%;
@@ -67,13 +69,21 @@ body {
     margin-top: 6em;
 }
 
+iframe {
+    width: calc(0px + 1em) !important;
+    height: 1em !important;
+    border-width: 2px !important;
+    position: static !important;
+    overflow: auto !important;
+}
+
 @media only screen and (max-width: 865px) {
     .demo-explanation, .demo {
         width: 100%;
     }
     
     .text {
-        font-size: 0.9em;
+        font-size: 1.0625em;
     }
 
     .demo {
@@ -82,23 +92,20 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    .text-label {
-        padding: 10px;
+
+    .text {
+        font-size: 1em;
     }
+
 }
 
 @media only screen and (max-width: 570px) {
-    .text-bottom {
-        width: 100%;
-        left: 0;
-        right: auto;
-        top: 100%;
-        bottom: auto;
-        background: black;
+    .demo {
+        height: 115.3vw;
     }
 
-    .demo-explanation {
-        margin-top: 6em;
+    .text-zoom-113 .demo-explanation {
+        margin-top: 7em;
     }
 
     .text-label {
@@ -107,6 +114,9 @@ body {
 }
 
 @media only screen and (max-width: 320px) {
+    .text {
+        font-size: 0.7em;
+    }
     .text-top {
         width: 50%;
     }

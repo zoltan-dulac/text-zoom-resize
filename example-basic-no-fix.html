@@ -14,7 +14,14 @@
 
     <div class="demo">
         <div class="image">
-            <img src="images/3-dev-adam-poster-widescreen.jpg" />
+            <picture>
+                <source media="(max-width: 570px)" srcset="images/3-dev-adam-poster.jpg" />
+                <source media="(min-width: 571px)" srcset="images/3-dev-adam-poster-widescreen.jpg" />
+                <img
+                    src="images/3-dev-adam-poster-widescreen.jpg"
+                    alt="Photo from the movie '3 Dev Adam': Turkish Captain America is trying to save Julie from the Evil Turkish Spiderman."
+                />
+            </picture>
         </div>
         <div class="text">
             <div class="text-top text-label">
