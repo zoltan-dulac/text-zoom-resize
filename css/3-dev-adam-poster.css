@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
     line-height: 1.2;
+    text-size-adjust: auto !important;
+}
+output {
+    position: absolute;
+    bottom: 0;
 }
 
 body {
@@ -87,6 +92,7 @@ body {
     }
 }
 
+/*
 @media only screen and (max-width: 570px) {
     .text-bottom {
         width: 100%;
@@ -111,3 +117,5 @@ body {
         width: 50%;
     }
 }
+
+*/

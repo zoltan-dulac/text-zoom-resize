@@ -72,13 +72,16 @@ if (typeof document !== 'undefined') {
                 forceFontBoostingStr += testText;
             }
             fontBoostFix.innerHTML = forceFontBoostingStr;
-            el.appendChild(fontBoostFix);
-            
+            //el.appendChild(fontBoostFix);
+            el.innerHTML += forceFontBoostingStr;
+            //el.style.cssText = 'position: static !important;';
+            console.log(el.innerText, el.innerText.length)
             
         }
 
         const onFontSizeChangeHandler = function () {
             const r = dDiv.offsetWidth / 100;
+            console.log('dFrame offsetWidth:', dFrame.offsetWidth);
 
             return !document.dispatchEvent(fontSizeChangeEvent);
         }
@@ -106,9 +109,9 @@ if (typeof document !== 'undefined') {
             dFrame.setAttribute('aria-hidden', 'true');
             dFrame.style.cssText = 'position:absolute;left:0;top:-100%;width:100%;height:100%;margin:1px 0 0;border:none;opacity:0;visibility:hidden;pointer-events:none;';
             dDiv = document.createElement('DIV');
-            dDiv.style.cssText = "font-family: 'Arial', 'Helvetica', sans-serif; box-sizing: border-box; position: relative; display: inline; font-size: 1em;"; //clip-path: polygon(0% 100%, 0% 100%);"
+            dDiv.style.cssText = "font-family: 'Roboto', sans-serif; box-sizing: border-box; position: relative; display: inline; font-size: 1em;"; //clip-path: polygon(0% 100%, 0% 100%);"
             const testText = '&#8203;';
-            let forceFontBoostingStr = '<span aria-hidden="true">m'
+            let forceFontBoostingStr = '<span style="box-sizing: border-box" aria-hidden="true">m'
 
             var initialChars = 217;
             for (var i=0; i<initialChars; i++ ) {

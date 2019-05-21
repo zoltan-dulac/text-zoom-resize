@@ -24,12 +24,17 @@
                 this text reposition itself to ensure it doesn't obscure important
                 parts of this photo.
             </div>
+
+            
         </div>
     </div>
-        
+ 
+    <div id="output"></div>
 <script src="js/textZoomEvent.js"></script>
 <script>
     const body = document.body;
+    const outputEl = document.getElementById('output');
+
     function setCssTextZoomFactor() {
         console.log(textZoomEvent.resizeFactor());
         if (textZoomEvent.resizeFactor() > 1.13) {
@@ -37,6 +42,7 @@
         } else {
             body.classList.remove('text-zoom-113');
         }
+        outputEl.innerHTML += ('<div>resize factor: ' + textZoomEvent.resizeFactor() + '</div>');
     }
     // It is better if you give this the value of 
     // parseFloat(getComputedStyle(document.documentElement).fontSize

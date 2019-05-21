@@ -55,6 +55,7 @@ if (typeof document !== 'undefined') {
     }
 
     this.resizeFactor = function () {
+      console.log('dFrame offsetWidth:', dFrame.offsetWidth);
       return dFrame.offsetWidth / textZoomEvent.unzoomPixelValue;
     };
 
@@ -92,7 +93,7 @@ if (typeof document !== 'undefined') {
       doc = doc.document || doc;
       var s = 'style="width:100%;height:100%;padding:0;margin:0;overflow:hidden;"';
       doc.open();
-      doc.write('<html ' + s + '><body ' + s + '></body></html>');
+      doc.write('<html ' + s + '><body ' + s + '> </body></html>');
       doc.close();
       dWin.addEventListener('resize', onFontSizeChangeHandler);
       isInitialized = true;
