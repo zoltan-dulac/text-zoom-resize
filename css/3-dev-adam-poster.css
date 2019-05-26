@@ -69,14 +69,6 @@ body {
     margin-top: 6em;
 }
 
-iframe {
-    width: calc(0px + 1em) !important;
-    height: 1em !important;
-    border-width: 2px !important;
-    position: static !important;
-    overflow: auto !important;
-}
-
 @media only screen and (max-width: 865px) {
     .demo-explanation, .demo {
         width: 100%;
