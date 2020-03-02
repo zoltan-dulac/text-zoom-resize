@@ -78,6 +78,7 @@ if (typeof document !== 'undefined') {
 
       dFrame = document.createElement('IFRAME');
       dFrame.setAttribute('aria-hidden', 'true');
+      dFrame.setAttribute('tabindex', '-1');
       document.body.insertBefore(dFrame, b);
       var dS = dFrame.style;
       dS.width = '1em';

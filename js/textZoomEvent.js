@@ -82,6 +82,7 @@ if (typeof document !== 'undefined') {
             // Create IFRAME that we will attache resize event to.
             dFrame = document.createElement('IFRAME');
             dFrame.setAttribute('aria-hidden', 'true');
+            dFrame.setAttribute('tabindex', '-1');
 
             document.body.insertBefore(dFrame, b);
 
