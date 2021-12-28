@@ -8,7 +8,7 @@
     "build": "npx babel js/textZoomEvent.js --out-file dist/textZoomEvent-es4.js",
     "build:all": "npm run build; npm run build:prod; npm run build:module",
     "build:prod": "BABEL_ENV=production npx babel js/textZoomEvent.js --out-file dist/textZoomEvent-es4-min.js",
-    "build:module": "(cat js/textZoomEvent.js; echo; echo 'export textZoomEvent;') > dist/textZoomEvent.module.js",
+    "build:module": "(cat js/textZoomEvent.js; echo; echo 'export default textZoomEvent;') > dist/textZoomEvent.module.js",
     "clean": "rimraf dist/*",
     "update:major": "V=`npm version major`; git push origin $V; npm publish",
     "update:minor": "V=`npm version minor`; git push origin $V; npm publish",
