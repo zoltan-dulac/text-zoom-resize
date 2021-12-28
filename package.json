@@ -4,7 +4,7 @@
   "description": "A library that will detect when a user zooms text in their browser. This is a common use case for people who are visually impaired.",
   "main": "dist/textZoomEvent-es4.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"No tests defined\" && exit 0",
     "build": "npx babel js/textZoomEvent.js --out-file dist/textZoomEvent-es4.js",
     "build:all": "npm run build; npm run build:prod; npm run build:module",
     "build:prod": "BABEL_ENV=production npx babel js/textZoomEvent.js --out-file dist/textZoomEvent-es4-min.js",
