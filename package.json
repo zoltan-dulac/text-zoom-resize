@@ -1,6 +1,6 @@
 {
   "name": "text-zoom-event",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A library that will detect when a user zooms text in their browser. This is a common use case for people who are visually impaired.",
   "main": "dist/textZoomEvent-es4.js",
   "scripts": {
