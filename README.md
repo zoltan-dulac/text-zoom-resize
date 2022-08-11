@@ -68,5 +68,5 @@ npm run update:patch # Update to next patch version number (e.g. 1.2.4 to 1.2.5,
 
 ```
 
-All the `npm update` commands should be run after pushing the code/merging to the master branch.
+All the `npm run update:*` commands should be run after pushing the code/merging to the master branch.
 
